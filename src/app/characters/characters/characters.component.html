@@ -1,30 +1,7 @@
-<h1>Savage Worlds Funnels</h1>
-<div>
-  <ul>
-    <li>"Funnel" as in the Dungeon Crawl Classics (DCC) and old school RPG concept. Start with many level-0 adventurers. One survivor per player advances to level 1.</li>
-    <li>Refresh for another batch of characters.</li>
-    <li>
-      Some quick rules:
-      <ul>
-        <li>Characters are extras.</li>
-        <li>All trait rolls are d4.</li>
-        <li>Profession-relevant trait rolls are made at d6.</li>
-        <li>Do not roll a wild die.</li>
-        <li>Start with 0 bennies.</li>
-        <li>Start with 2 extras on the front lines. The rest mill about uselessly.</li>
-        <li>If an extra dies, replace with another of your extras.</li>
-        <li>If all your extras die, take control of another player's extra. Their choice.</li>
-      </ul>
-    </li>
-    <li>Based on the Savage Worlds Deluxe USS Kaine adventure, this should result in about a 12.5% survival rate for the final fight assuming no bennies are spent. If you want a 30% survival rate, grant either 1 benny or 1 wound. If you want a 50% survival rate, grant both.</li>
-    <li>I suspect the actual survival rate will be much higher.</li>
-  </ul>
-</div>
+<app-character [seed]="seed + '-1'"></app-character>
 <hr />
-<app-character seed="{{seed}}-1"></app-character>
+<app-character [seed]="seed + '-2'"></app-character>
 <hr />
-<app-character seed="{{seed}}-2"></app-character>
+<app-character [seed]="seed + '-3'"></app-character>
 <hr />
-<app-character seed="{{seed}}-3"></app-character>
-<hr />
-<app-character seed="{{seed}}-4"></app-character>
+<app-character [seed]="seed + '-4'"></app-character>

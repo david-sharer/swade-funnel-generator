@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { HindranceProviderService } from '../provider/hindrance-provider.service';
 import { ProfessionProviderService } from '../provider/profession-provider.service';
 import { EdgeProviderService } from '../provider/edge-provider.service';
@@ -15,7 +15,7 @@ import { ProfessionFull } from '../provider/profession-full';
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.scss']
 })
-export class CharacterComponent implements OnInit {
+export class CharacterComponent implements OnChanges {
   public edge: Edge;
   public hindrances: Hindrance[];
   public profession: ProfessionFull;
@@ -28,7 +28,7 @@ export class CharacterComponent implements OnInit {
     public professions: ProfessionProviderService,
   ) { }
 
-  public ngOnInit(): void {
+  public ngOnChanges(): void {
     let points = 0;
     const prng = seedrandom(this.seed);
     const hindrances = shuffleInPlace(this.hindranceProvider.hindrances, prng);
