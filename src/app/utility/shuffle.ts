@@ -1,3 +1,5 @@
+import * as seedrandom from 'seedrandom';
+
 /** Shuffles the array in place and returns it. */
 export function shuffleInPlace<T>(input: T[], rng: seedrandom.prng): T[] {
   // TODO: Turn this into "sample in place", make a "single item" version, and make it faster. Tired.
