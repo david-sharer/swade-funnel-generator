@@ -19,7 +19,7 @@ export class CharactersComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.seed = params.get('seed');
       if (this.seed === '*') {
-        this.router.navigate(['/characters', new Chance().guid()]);
+        this.router.navigate(['/characters', new Chance().guid()], { replaceUrl: true });
       }
     });
   }
