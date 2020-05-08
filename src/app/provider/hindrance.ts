@@ -1,6 +1,8 @@
 export class Hindrance {
   constructor(
-    public name: string,
-    public summary: string
+    public readonly name: string,
+    public readonly points: number,
+    public readonly summary: string,
+    public readonly bannedEdges: string[] = [],
   ) { }
 }

@@ -1,7 +1,16 @@
 <div>
   <ul>
-    <li><b>Profession: </b><span>{{profession.name}}</span></li>
-    <li><b>{{hindrance.name}}: </b><span>{{hindrance.summary}}</span></li>
-    <li><b>{{edge.name}}: </b><span>{{edge.summary}}</span></li>
+    <li><b>{{profession.race}} {{profession.occupation}}</b> (<a href="{{profession.referenceUrl}}">info</a>)</li>
+    <li>
+      Carrying:
+      <ul>
+        <li>{{profession.goods}}</li>
+        <li>{{profession.weapon}}</li>
+      </ul>
+    </li>
+    <li *ngFor="let hindrance of hindrances">
+      <b> ⁻ {{hindrance.name}} </b><span>{{hindrance.summary}}</span>
+    </li>
+    <li><b>⁺ {{edge.name}} </b><span>{{edge.summary}}</span></li>
   </ul>
 </div>
