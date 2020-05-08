@@ -6,9 +6,8 @@ import { Profession } from '../provider/profession';
 import { Hindrance } from '../provider/hindrance';
 import { Edge } from '../provider/edge';
 import * as _ from 'lodash';
-import * as seedrandom from 'seedrandom';
-import { shuffleInPlace } from '../utility/shuffle';
 import { ProfessionFull } from '../provider/profession-full';
+import { Chance } from 'chance';
 
 @Component({
   selector: 'app-character',
@@ -30,10 +29,10 @@ export class CharacterComponent implements OnChanges {
 
   public ngOnChanges(): void {
     let points = 0;
-    const prng = seedrandom(this.seed);
-    const hindrances = shuffleInPlace(this.hindranceProvider.hindrances, prng);
-    const edges = shuffleInPlace(this.edgeProvider.edges, prng);
-    this.profession = _.first(shuffleInPlace(this.professions.swadeDccProfessions, prng));
+    const chance = new Chance(this.seed);
+    const hindrances = chance.shuffle(this.hindranceProvider.hindrances);
+    const edges = chance.shuffle(this.edgeProvider.edges);
+    this.profession = _.first(chance.shuffle(this.professions.swadeDccProfessions));
 
     const sample =
       _(hindrances)

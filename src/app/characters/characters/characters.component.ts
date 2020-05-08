@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { guid } from 'src/app/utility/guid';
+import { Chance } from 'chance';
 
 @Component({
   selector: 'app-characters',
@@ -19,7 +19,7 @@ export class CharactersComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.seed = params.get('seed');
       if (this.seed === '*') {
-        this.router.navigate(['/characters', guid()]);
+        this.router.navigate(['/characters', new Chance().guid()]);
       }
     });
   }
