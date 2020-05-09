@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Chance } from 'chance';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import * as Chance from 'chance';
 
 @Component({
-  selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss']
+  selector: 'app-fifty-fathoms',
+  templateUrl: './fifty-fathoms.component.html',
+  styleUrls: ['./fifty-fathoms.component.scss']
 })
-export class CharactersComponent implements OnInit {
+export class FiftyFathomsComponent implements OnInit {
   public seed: string;
 
   constructor(
@@ -25,7 +25,7 @@ export class CharactersComponent implements OnInit {
         const newRoute = this.route.snapshot.routeConfig.path.replace(':seed', newSeed);
         this.router.navigate([newRoute], { replaceUrl: true });
       }
-      this.title.setTitle(`SWADEgen| 4char| wm| ${this.seed}`);
+      this.title.setTitle(`SWADEgen| 4char| 50f| ${this.seed}`);
     });
   }
 }

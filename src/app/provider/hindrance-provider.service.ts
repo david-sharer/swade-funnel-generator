@@ -10,7 +10,19 @@ export class HindranceProviderService {
 
   constructor() { }
 
-  public get hindrances(): Hindrance[] {
+  public get fiftyFathomsSwade(): Hindrance[] {
+    return [
+      ...this.swade,
+      new Hindrance("Branded", 2, "Character was caught commiting acts of piracy. Received a brand on face labelling them a pirate. -2 to Persuasion among non-pirates. Any vessel they're on that is boarded by privateers is thoroughly searched. If they're caught committing more acts of piracy, they are summarily executed. (M)"),
+      new Hindrance("Jingoistic", 2, "Character believes their culture to be superior to all others. -4 to Persuasion among other cultures. (M)"),
+      new Hindrance("Jingoistic", 1, "Character believes their culture to be superior to all others. -2 to Persuasion among other cultures. (m)"),
+      new Hindrance("Landlubber", 1, "d4-2 boating at start. -2 to Boating (m)"),
+      new Hindrance("Seasick", 2, "Roll Vigor for seasickness when boarding a ship. Failure = -2 to all Trait rolls until they spend an hour on dry land. Storm = Vigor Roll per round. Failure = -4 penalty."),
+      new Hindrance("Squanderous", 1, "Carousing cost doubled."),
+    ];
+  }
+
+  public get swade(): Hindrance[] {
     return [
       new Hindrance('All Thumbs', 1, '–2 to use mechanical or electrical devices. (m)'),
       new Hindrance('Anemic', 1, '–2 Vigor when resisting Fatigue. (m)'),

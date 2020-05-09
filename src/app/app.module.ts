@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { CharacterComponent } from './character/character.component';
 import { CharactersComponent } from './characters/characters/characters.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FiftyFathomsComponent } from './characters/fifty-fathoms/fifty-fathoms.component';
+import { FiftyFathomsCharactersComponent } from './characters/fifty-fathoms/character/character.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterComponent,
     CharactersComponent,
-    HomeComponent
+    HomeComponent,
+    FiftyFathomsComponent,
+    FiftyFathomsCharactersComponent,
   ],
   imports: [
     BrowserModule,

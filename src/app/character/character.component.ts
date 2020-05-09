@@ -4,7 +4,7 @@ import { ProfessionProviderService } from '../provider/profession-provider.servi
 import { EdgeProviderService } from '../provider/edge-provider.service';
 import { Profession } from '../provider/profession';
 import { Hindrance } from '../provider/hindrance';
-import { Edge } from '../provider/edge';
+import { MinimalEdge } from '../provider/edge';
 import * as _ from 'lodash';
 import { ProfessionFull } from '../provider/profession-full';
 import { Chance } from 'chance';
@@ -15,7 +15,7 @@ import { Chance } from 'chance';
   styleUrls: ['./character.component.scss']
 })
 export class CharacterComponent implements OnChanges {
-  public edge: Edge;
+  public edge: MinimalEdge;
   public hindrances: Hindrance[];
   public profession: ProfessionFull;
 
@@ -30,8 +30,8 @@ export class CharacterComponent implements OnChanges {
   public ngOnChanges(): void {
     let points = 0;
     const chance = new Chance(this.seed);
-    const hindrances = chance.shuffle(this.hindranceProvider.hindrances);
-    const edges = chance.shuffle(this.edgeProvider.edges);
+    const hindrances = chance.shuffle(this.hindranceProvider.swade);
+    const edges = chance.shuffle(this.edgeProvider.oldEdges);
     this.profession = _.first(chance.shuffle(this.professions.swadeDccProfessions));
 
     const sample =

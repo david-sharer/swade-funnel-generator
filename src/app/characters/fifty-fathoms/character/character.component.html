@@ -1,0 +1,29 @@
+<div>
+  <ul>
+    <li>
+      <b>{{profession.race.name}} {{profession.occupation}}</b> (<a href="{{profession.referenceUrl}}">info</a>)
+      <br/>
+      {{profession.race.summary}}
+      <ul>
+        <li *ngFor="let edge of profession.race.edges">
+          <b>⁺ {{edge.name}} </b><span>{{edge.summary}}</span>
+        </li>
+        <li *ngFor="let hindrance of profession.race.hindrances">
+          <b> ⁻ {{hindrance.name}} </b><span>{{hindrance.summary}}</span>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Carrying:
+      <ul>
+        <li *ngFor="let item of profession.items">{{item}}</li>
+      </ul>
+    </li>
+    <li *ngFor="let hindrance of hindrances">
+      <b> ⁻ {{hindrance.name}} </b><span>{{hindrance.summary}}</span>
+    </li>
+    <li *ngFor="let edge of edges">
+      <b>⁺ {{edge.name}} </b><span>{{edge.summary}}</span>
+    </li>
+  </ul>
+</div>

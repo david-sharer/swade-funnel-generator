@@ -1,13 +1,127 @@
 import { Injectable } from '@angular/core';
 import { Profession } from './profession';
 import { ProfessionFull } from './profession-full';
+import { Race } from './race';
+import { EdgeProviderService } from './edge-provider.service';
+import { Edge } from './edge';
+import { Hindrance } from './hindrance';
+import * as Chance from 'chance';
+import { ProfessionFull2 } from './profession-full-2';
+import { pickValidEdges } from '@utility/pick-valid-edges';
+
+// tslint:disable: max-line-length
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfessionProviderService {
 
-  constructor() { }
+  constructor(
+    private readonly edgeProvider: EdgeProviderService
+  ) { }
+
+  public get fiftyFathoms(): ProfessionFull2[] {
+    const atani = new Race(
+      "Atani",
+      "Tall, thin, glider-folk with wing-like membranes stretching from their arms.",
+      [ new Edge("Agile", "", "Start with d6 Agility"),
+        new Edge("Gliders", "", "Can glide. Have skill Flying(ag) at d6. Descend 1\" vertical for every 2\" horizontal. Success on Flying (per round) allows staying level or going up 1\" but sacrificing 2\" horizontal") ],
+      [ new Hindrance("Weak", 0, "Hollow bones make you frail. It costs 2 points/advances to raise strength.") ]
+    );
+
+    const makeHuman = () => new Race(
+      "Human",
+      "Humans are versatile and so get an extra edge.",
+      [],
+      [],
+      (rng, r, e, h) => { r.edges.push(...pickValidEdges(rng, r, e, h, this.edgeProvider.fiftyFathomsSwade, 1)); }
+    );
+
+    const makeMasaquani = () => new Race(
+      "Masaquani",
+      null,
+      [],
+      [],
+      (rng, r, _, __) => {
+        const skill = rng.pickone(["Agility", "Smarts", "Spirit", "Strength", "Vigor"]);
+        r.edges.push(new Edge(`Improved Stat (${skill})`, "", "Masaquani are iconic humanoids. They start with a stat at d6 and embody it."));
+      }
+    );
+
+    const doreen = new Race(
+      "Doreen",
+      "Dolphin-folk. Hunted to near extinction by Kehana. At one time there were around 300.",
+      [ new Edge("Sea Hunter", "", "Doreen are consummate hunters and know a great deal about th eseas they swim. They add +2 to Stealth & Surfival rolls made while underwater."),
+        new Edge("Semi-Aquatic", "", "Start with d6 in swimming. Move at skill level in inches while swimming. Can stay underwater for 15 minutes before making fatigue rolls.")],
+      [ new Hindrance("Racial Enemy (Kehana)", 0, "Doreen hate the kehana and suffer -4 to Charisma when working with them.")]
+    );
+
+    const grael = new Race(
+      "Grael",
+      "Walrus-folk with some martial tendencies. They name themselves.",
+      [ new Edge("Blubber", "", "Gain +1 Toughness (natural armor). +4 to Fatigue rolls to resist cold. -2 to Fatigue rolls in extreme heat."),
+        new Edge("Size+1", "", "They chonk. +1 Toughness. Cannot use goods not specifically made for them."),
+        new Edge("Strong", "", "Start with d8 strength. May advance strength to d12+2."),
+        new Edge("Semi-Aquatic", "", "Start with d6 in swimming. Move at skill level in inches while swimming. Can stay underwater for 15 minutes before making fatigue rolls.")],
+      [ new Hindrance("All Thumbs", 0, "–2 to use mechanical or electrical devices.", [""]),
+        new Hindrance("Dumb", 0, "Grael aren't deep thinkers. It costs 2 points/advances to raise smarts."),
+        new Hindrance("Slow", 0, "Base pace 4 on dry land")]
+    );
+
+    const kehana = new Race(
+      "Kehana",
+      "Piranha folk? Underwater pack hunters. They have burbling names that sound unpronouncable to others.",
+      [ new Edge("Teeth and Claws", "", "Str+d4 claws/teeth."),
+        new Edge("Aquatic", "", "Move at full swimming skill. No drowning. May speak underwater.")],
+      [ new Hindrance("Dehydration", 0, "Must immerse themselves in water 1 hour per 24, or take fatigue until incapacitated, then die."),
+        new Hindrance("Unwholesome Apetite", 0, "They prefer to consume their food live. -2 to Charisma among non-kehana."),
+        new Hindrance("Racial Enemy (Doreen)", 0, "Kehana hunt the weak 'grey-folk' (doreen) relentlessly and inflict grotesque tortures upon them. Suffer -4 to Charisma when working with them.")]
+    );
+
+    const kraken = new Race(
+      "Kraken",
+      "Squid-looking humanoids. Like Mindflayers. Magical.",
+      [ new Edge("Natural Talent", "", "Gain 10 power points. If you do not have arcana, this does nothing."),
+        new Edge("Aquatic", "", "Move at full swimming skill. No drowning. May speak underwater.")],
+      [ new Hindrance("Dehydration", 0, "Must immerse themselves in water 1 hour per 24, or take fatigue until incapacitated, then die.")]
+    );
+
+    const redMan = new Race(
+      "(Half-ugak) Red Man",
+      "The Red Men of Torath-Ka are basically red Orcs. This is basically a red half-orc.",
+      [ new Edge("Natural Talent", "", "Gain 10 power points. If you do not have arcana, this does nothing."),
+        new Edge("Aquatic", "", "Move at full swimming skill. No drowning. May speak underwater."),
+        new Edge("Strong", "", "Start with d6 strength"),
+        new Edge("Tough", "", "Start with a d6 vigor"),
+        new Edge("Tough as Nails", "L, V d8", "The hero can take four Wounds before being Incapacitated.")],
+      [ new Hindrance("All Thumbs", 0, "–2 to use mechanical or electrical devices."),
+        new Hindrance('Clueless', 0, '–1 to Common Knowledge and Notice rolls.'),
+        new Hindrance("Dumb", 0, "Half-ugak brains are less developed than most. It costs 2 points/advances to raise smarts."),
+        new Hindrance("Outsider", 0, "Universally reviled or at least shunned by other races. -2 to Charisma"),]
+    );
+
+    const scurrilian = new Race(
+      "Scurillian",
+      "It's a giant crab, created by magic. Pincers. Smart. Great eyes. They molt.",
+      [ new Edge("Pincers", "", "Str+d6. They're giant. Treat the two pincers as a separate creature for turns. They are ambidextrous. +2 to Grappling"),
+        new Edge("Keen Mind", "", "Their brains are wired to remember details and easily deal with mathematics. +2 to Common Knowledge on relevant rolls."),
+        new Edge("Shell", "", "Torso: +3 toughness. Legs: +1 toughness. Does not stack with other armor (if you can even get fitted)"),
+        new Edge("Telescopic Eyes", "", "+2 to Notice Rolls to detect things behind them. Can peer over cover with little exposure. -8 penalty to target an eye. 2 damage destroys the eye for 6 months (and shakes)"),
+      ],
+      [ new Hindrance('Mean', 0, '–1 to Persuasion rolls.') ]
+    );
+
+    return [
+      new ProfessionFull2("Common Folk", makeHuman(), ["Dagger", "Potato"], "50f", "#"),
+      new ProfessionFull2("Common Folk", atani, ["Axe", "Potato"], "50f", "#"),
+      new ProfessionFull2("Common Folk", doreen, ["Bone Knife (as dagger)", "Potato"], "50f", "#"),
+      new ProfessionFull2("Common Folk", grael, ["Battle Ball", "Potato"], "50f", "#"),
+      new ProfessionFull2("Common Folk", kehana, ["Dagger", "Potato"], "50f", "#"),
+      new ProfessionFull2("Common Folk", redMan, ["Dagger", "Potato"], "50f", "#"),
+      new ProfessionFull2("Common Folk", scurrilian, [], "50f", "#"),
+      new ProfessionFull2("Common Folk", makeMasaquani(), [], "50f", "#"),
+    ];
+  }
 
   public get swadeDccProfessions(): ProfessionFull[] {
     return [
