@@ -17,7 +17,7 @@ export class HindranceProviderService {
       new Hindrance("Jingoistic", 2, "Character believes their culture to be superior to all others. -4 to Persuasion among other cultures. (M)"),
       new Hindrance("Jingoistic", 1, "Character believes their culture to be superior to all others. -2 to Persuasion among other cultures. (m)"),
       new Hindrance("Landlubber", 1, "d4-2 boating at start. -2 to Boating (m)"),
-      new Hindrance("Seasick", 2, "Roll Vigor for seasickness when boarding a ship. Failure = -2 to all Trait rolls until they spend an hour on dry land. Storm = Vigor Roll per round. Failure = -4 penalty."),
+      new Hindrance("Seasick", 2, "Roll Vigor for seasickness when boarding a ship or in a storm."),
       new Hindrance("Squanderous", 1, "Carousing cost doubled."),
     ];
   }
