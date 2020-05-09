@@ -13,7 +13,8 @@
         </li>
       </ul>
     </li>
-    <li>
+    <li *ngIf="profession.items.length == 0">Carrying nothing</li>
+    <li *ngIf="profession.items.length > 0">
       Carrying:
       <ul>
         <li *ngFor="let item of profession.items">{{item}}</li>

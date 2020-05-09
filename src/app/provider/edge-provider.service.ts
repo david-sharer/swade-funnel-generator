@@ -195,7 +195,7 @@ export class EdgeProviderService {
       new Edge("Soul Drain", "S, AB, arcane skill d10", "Recover 5 Power Points for a level of Fatigue. If you don't already have magic, gain magic. <genmagic>"),
 
       new Edge('Arcane Background (Magic)', 'N, Sm d6, Human, Kraken, Masaquani, Scurilian', "Mages' power comes from the bound spirits of the raw elements. RNG element, then spells. 10pp, 3 powers. <genmagic>"),
-      new Edge("Elemental Mastery", "S, AB", "Gain a second element, your choice. If you don't already have Magic, this gives you magic. This gives -1 to all spell rolls. Become an archmage to remove it.  <genmagic>"),
+      new Edge("Elemental Mastery", "S, AB", "Gain a second element (optional). If you don't already have Magic, this gives you magic. This gives -1 to all spell rolls. Become an archmage to remove it.  <genmagic>"),
 
       new Edge('Booty!', 'N, Boating d6, Fighting d6, Shootingd6', 'Begin play with a roll on the King\'s Random table. Why do you have this?'),
       new Edge("Kraken Bone Sword & Armor", "N, Kraken", "Begin play with an enchanted bone sword from the Kraken Navy. Why do you have this?"),
