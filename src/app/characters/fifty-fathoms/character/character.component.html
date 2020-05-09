@@ -25,5 +25,13 @@
     <li *ngFor="let edge of edges">
       <b>⁺ {{edge.name}} </b><span>{{edge.summary}}</span>
     </li>
+    <li *ngIf="domain">
+      Your spell domain is <b>ₚ{{domain}}</b>.
+      <ul>
+        <li *ngFor="let power of powers">
+          <b>ₚ{{power.name}}</b> {{power.summary}}
+        </li>
+      </ul>
+    </li>
   </ul>
 </div>

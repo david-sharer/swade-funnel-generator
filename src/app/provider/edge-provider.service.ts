@@ -183,8 +183,20 @@ export class EdgeProviderService {
   public get fiftyFathomsSwade(): Edge[] {
     return [
       ...this.swadeCore,
-      ...this.swadeCoreMagicUpgrades,
-      new Edge('Arcane Background (Magic)', 'N, Sm d6, Human, Kraken, Masaquani, Scurilian', "Mages' power comes from the bound spirits of the raw elements. RNG element, then spells. If you aren't a human, masaquani, kraken, or scurillian, why do you have this?"),
+      new Edge("Artificer", "S, AB", "Allows user to create Arcane Devices. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Channeling", "S, AB", "Reduce Power Point cost by 1 with a raise on the activation roll. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Concentration", "S, AB", "Double Duration of non-Instant powers. If you don't already have magic, gain magic. <genmagic>"),
+
+      new Edge("New Powers", "N, AB", "Your character knows two new powers, your choice. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Power Points", "N, AB", "Gain 5 additional Power Points, no more than once per Rank. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Power", "Surge WC, N, AB, arcane skill d8", "Recover 10 Power Points when dealt a Joker in combat. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Rapid Recharge", "S, Sp d6, AB", "Recover 10 Power Points per hour. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Improved Rapid Recharge", "V, Rapid Recharge", "Recover 20 Power Points per hour. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Soul Drain", "S, AB, arcane skill d10", "Recover 5 Power Points for a level of Fatigue. If you don't already have magic, gain magic. <genmagic>"),
+
+      new Edge('Arcane Background (Magic)', 'N, Sm d6, Human, Kraken, Masaquani, Scurilian', "Mages' power comes from the bound spirits of the raw elements. RNG element, then spells. 10pp, 3 powers. <genmagic>"),
+      new Edge("Elemental Mastery", "S, AB", "Gain a second element, your choice. If you don't already have Magic, this gives you magic. This gives -1 to all spell rolls. Become an archmage to remove it.  <genmagic>"),
+
       new Edge('Booty!', 'N, Boating d6, Fighting d6, Shootingd6', 'Begin play with a roll on the King\'s Random table. Why do you have this?'),
       new Edge("Kraken Bone Sword & Armor", "N, Kraken", "Begin play with an enchanted bone sword from the Kraken Navy. Why do you have this?"),
       new Edge('Natural Swimmer', 'N, Non-Aquatic', 'Add +2 to Swimming, +1 to Swimming Pace, Hold Breath 50% longer than others.'),
@@ -198,7 +210,6 @@ export class EdgeProviderService {
       new Edge('Ramming Speed', 'S, Boating d8', '+2 to perform a Ram maneuver, take half damage'),
       new Edge("Board 'em", "N, Command, Throwing d8", "When leading, +4 to group Throwing rolls to grapple an enemy ship"),
       new Edge("Master & Commander", "S, Sm d8, Boating d10, Intimidation d8, Command, sole captain", "When sole captain, crew get +2 to boating rolls"),
-      new Edge("Elemental Mastery", "S, AB", "Gain a second element. If you don't already have Magic, roll twice for spell elements. This gives -1 to all spell rolls. Become an archmage to remove it."),
       new Edge("Boarder", "N, Boating d6, Climbing d8, Throwing d8", "You've survived a lot of boardings. Climbing/Throwing rolls made at +2; Gain a benny when you're the first to board"),
       new Edge("Gunsmith", "N, Sm d8, Science d8, Repair d8", "Repair guns. Four hours per device. Can make shots. see page 26"),
       new Edge("Mark of Torquemada", "N", "The dread inquisitor Tomas de Torquemada controls a legion of underlings to help him in his nefarious quest - the complete extermination of all Caribsus' mages. Those who pledge themselves to his cause, honestly and truly, are made inquisitors and painfully branded upon their left breast with the sign of the cross. The Edge comes with a price, though. Torquemada knows what is in a person's heart, and does not impart his brand to those with no intention of fulfilling their duties. The character is expected to bring Torquemada a minimum of one mage every six months. Those who fail are not banished, but are sent after more powerful targets to regain the High Inquisitor's trust. Arcane skills targeting the hero suffer a −4 penalty (even if cast by allies!); magical damage is reduced by 4."),
