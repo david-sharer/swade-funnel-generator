@@ -29,7 +29,7 @@
   </ul>
   <div *ngIf="domain">
     <hr />
-    Has spells. Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
+    <b>Elemental Mage.</b> Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
     <ul>
       <li *ngFor="let power of powers">
         <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'"><br/>{{power.summary}}</app-expando>
