@@ -89,9 +89,7 @@ export class ProfessionProviderService {
     const redMan = new Race(
       "(Half-ugak) Red Man",
       "The Red Men of Torath-Ka are basically red Orcs. This is basically a red half-orc.",
-      [ new Edge("Natural Talent", "", "Gain 10 power points. If you do not have arcana, this does nothing."),
-        new Edge("Aquatic", "", "Move at full swimming skill. No drowning. May speak underwater."),
-        new Edge("Strong", "", "Start with d6 strength"),
+      [ new Edge("Strong", "", "Start with d6 strength"),
         new Edge("Tough", "", "Start with a d6 vigor"),
         new Edge("Tough as Nails", "L, V d8", "The hero can take four Wounds before being Incapacitated.")],
       [ new Hindrance("All Thumbs", 0, "–2 to use mechanical or electrical devices."),
