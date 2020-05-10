@@ -26,13 +26,14 @@
     <li *ngFor="let edge of edges">
       <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'"><br/>{{edge.summary}}</app-expando>
     </li>
-    <li *ngIf="domain">
-      Has spells. Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
-      <ul>
-        <li *ngFor="let power of powers">
-          <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'"><br/>{{power.summary}}</app-expando>
-        </li>
-      </ul>
-    </li>
   </ul>
+  <div *ngIf="domain">
+    <hr />
+    Has spells. Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
+    <ul>
+      <li *ngFor="let power of powers">
+        <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'"><br/>{{power.summary}}</app-expando>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -10,8 +10,14 @@
   margin: .5rem;
   padding: .5rem;
   border: 1px solid black;
-  > div > ul {
-    padding: 0;
+  > div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    > ul {
+      padding: 0;
+    }
   }
 }
 
