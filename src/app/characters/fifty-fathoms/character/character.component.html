@@ -6,7 +6,7 @@
         {{profession.occupation}}
       </b>
       <ng-container *ngIf="profession.referenceUrl"> (<a href="{{profession.referenceUrl}}">info</a>)</ng-container>
-      <app-expando [label]="'ⓘ'" [tooltip]="'click to expand'">
+      <app-expando [label]="'ⓘ'" [tooltip]="profession.race.summary">
         <br />
         {{profession.race.summary}}
       </app-expando>
