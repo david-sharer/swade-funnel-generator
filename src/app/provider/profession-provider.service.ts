@@ -51,7 +51,7 @@ export class ProfessionProviderService {
 
     const doreen = new Race(
       "Doreen",
-      "Dolphin-folk. Hunted to near extinction by Kehana. At one time there were around 300.",
+      "Dolphin-folk. Hunted to near extinction by Kehana. At one time there were as few as 300.",
       [ new Edge("Sea Hunter", "", "Doreen are consummate hunters and know a great deal about the seas they swim. They add +2 to Stealth & Survival rolls made while underwater."),
         new Edge("Semi-Aquatic", "", "Start with d6 in swimming. Move at skill level in inches while swimming. Can stay underwater for 15 minutes before making fatigue rolls.")],
       [ new Hindrance("Racial Enemy (Kehana)", 0, "Doreen hate the kehana and suffer -4 to Charisma when working with them."),
@@ -115,14 +115,14 @@ export class ProfessionProviderService {
     );
 
     return [
-      new ProfessionFull2("Common Folk", makeHuman(), ["Dagger", "Potato"], "50f", "#"),
-      new ProfessionFull2("Common Folk", atani, ["Axe", "Potato"], "50f", "#"),
-      new ProfessionFull2("Common Folk", doreen, ["Bone Knife (as dagger)", "Potato"], "50f", "#"),
-      new ProfessionFull2("Common Folk", grael, ["Battle Ball", "Potato"], "50f", "#"),
-      new ProfessionFull2("Common Folk", kehana, ["Dagger", "Potato"], "50f", "#"),
-      new ProfessionFull2("Common Folk", redMan, ["Dagger", "Potato"], "50f", "#"),
-      new ProfessionFull2("Common Folk", scurrilian, [], "50f", "#"),
-      new ProfessionFull2("Common Folk", makeMasaquani(), [], "50f", "#"),
+      new ProfessionFull2("Common Folk", makeHuman(), ["Dagger", "Potato"], "50f", null),
+      new ProfessionFull2("Common Folk", atani, ["Axe", "Potato"], "50f", null),
+      new ProfessionFull2("Common Folk", doreen, ["Bone Knife (as dagger)", "Potato"], "50f", null),
+      new ProfessionFull2("Common Folk", grael, ["Battle Ball", "Potato"], "50f", null),
+      new ProfessionFull2("Common Folk", kehana, ["Dagger", "Potato"], "50f", null),
+      new ProfessionFull2("Common Folk", redMan, ["Dagger", "Potato"], "50f", null),
+      new ProfessionFull2("Common Folk", scurrilian, [], "50f", null),
+      new ProfessionFull2("Common Folk", makeMasaquani(), [], "50f", null),
     ];
   }
 
