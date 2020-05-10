@@ -6,10 +6,10 @@
       {{profession.race.summary}}
       <ul class="horizontal-list">
         <span *ngFor="let edge of profession.race.edges">
-          <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'"><br/>{{edge.summary}}<br /></app-expando>
+          <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="edge.summary"><br/>{{edge.summary}}<br /></app-expando>
         </span>
         <span *ngFor="let hindrance of profession.race.hindrances">
-          <b> ⁻&nbsp;{{hindrance.name}}</b><app-expando [label]="'ⓘ'"><br/>{{hindrance.summary}}<br /></app-expando>
+          <b> ⁻&nbsp;{{hindrance.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="hindrance.summary"><br/>{{hindrance.summary}}<br /></app-expando>
         </span>
       </ul>
     </li>
@@ -21,10 +21,10 @@
       </ul>
     </li>
     <li *ngFor="let hindrance of hindrances">
-      <b> ⁻&nbsp;{{hindrance.name}}</b><app-expando [label]="'ⓘ'"><br/>{{hindrance.summary}}</app-expando>
+      <b> ⁻&nbsp;{{hindrance.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="hindrance.summary"><br/>{{hindrance.summary}}</app-expando>
     </li>
     <li *ngFor="let edge of edges">
-      <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'"><br/>{{edge.summary}}</app-expando>
+      <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="edge.summary"><br/>{{edge.summary}}</app-expando>
     </li>
   </ul>
   <div *ngIf="domain">
@@ -32,7 +32,7 @@
     <b>Elemental Mage.</b> Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
     <ul>
       <li *ngFor="let power of powers">
-        <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'"><br/>{{power.summary}}</app-expando>
+        <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
       </li>
     </ul>
   </div>

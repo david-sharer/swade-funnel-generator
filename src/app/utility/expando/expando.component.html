@@ -1,2 +1,2 @@
-<button (click)="expand = !expand">{{label}}</button>
+<button (click)="expand = !expand" title="{{tooltip}}">{{label}}</button>
 <span *ngIf="expand"><ng-content></ng-content></span>

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ExpandoComponent implements OnInit {
   @Input() public label: string;
-
+  @Input() public tooltip: string;
   @Input() public expand = false;
 
   constructor() { }

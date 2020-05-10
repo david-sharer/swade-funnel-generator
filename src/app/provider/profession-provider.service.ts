@@ -26,7 +26,8 @@ export class ProfessionProviderService {
       "Tall, thin, glider-folk with wing-like membranes stretching from their arms.",
       [ new Edge("Agile", "", "Start with d6 Agility"),
         new Edge("Gliders", "", "Can glide. Have skill Flying(ag) at d6. Descend 1\" vertical for every 2\" horizontal. Success on Flying (per round) allows staying level or going up 1\" but sacrificing 2\" horizontal") ],
-      [ new Hindrance("Weak", 0, "Hollow bones make you frail. It costs 2 points/advances to raise strength.") ]
+      [ new Hindrance("Weak", 0, "Hollow bones make you frail. It costs 2 points/advances to raise strength."),
+        new Hindrance("No Magic", 0, "This race cannot speak to the elemental spirits")]
     );
 
     const makeHuman = () => new Race(
@@ -53,7 +54,8 @@ export class ProfessionProviderService {
       "Dolphin-folk. Hunted to near extinction by Kehana. At one time there were around 300.",
       [ new Edge("Sea Hunter", "", "Doreen are consummate hunters and know a great deal about the seas they swim. They add +2 to Stealth & Survival rolls made while underwater."),
         new Edge("Semi-Aquatic", "", "Start with d6 in swimming. Move at skill level in inches while swimming. Can stay underwater for 15 minutes before making fatigue rolls.")],
-      [ new Hindrance("Racial Enemy (Kehana)", 0, "Doreen hate the kehana and suffer -4 to Charisma when working with them.")]
+      [ new Hindrance("Racial Enemy (Kehana)", 0, "Doreen hate the kehana and suffer -4 to Charisma when working with them."),
+        new Hindrance("No Magic", 0, "This race cannot speak to the elemental spirits")]
     );
 
     const grael = new Race(
@@ -65,7 +67,8 @@ export class ProfessionProviderService {
         new Edge("Semi-Aquatic", "", "Start with d6 in swimming. Move at skill level in inches while swimming. Can stay underwater for 15 minutes before making fatigue rolls.")],
       [ new Hindrance("All Thumbs", 0, "–2 to use mechanical or electrical devices.", [""]),
         new Hindrance("Dumb", 0, "Grael aren't deep thinkers. It costs 2 points/advances to raise smarts."),
-        new Hindrance("Slow", 0, "Base pace 4 on dry land")]
+        new Hindrance("Slow", 0, "Base pace 4 on dry land"),
+        new Hindrance("No Magic", 0, "This race cannot speak to the elemental spirits")]
     );
 
     const kehana = new Race(
@@ -75,7 +78,8 @@ export class ProfessionProviderService {
         new Edge("Aquatic", "", "Move at full swimming skill. No drowning. May speak underwater.")],
       [ new Hindrance("Dehydration", 0, "Must immerse themselves in water 1 hour per 24, or take fatigue until incapacitated, then die."),
         new Hindrance("Unwholesome Apetite", 0, "They prefer to consume their food live. -2 to Charisma among non-kehana."),
-        new Hindrance("Racial Enemy (Doreen)", 0, "Kehana hunt the weak 'grey-folk' (doreen) relentlessly and inflict grotesque tortures upon them. Suffer -4 to Charisma when working with them.")]
+        new Hindrance("Racial Enemy (Doreen)", 0, "Kehana hunt the weak 'grey-folk' (doreen) relentlessly and inflict grotesque tortures upon them. Suffer -4 to Charisma when working with them."),
+        new Hindrance("No Magic", 0, "This race cannot speak to the elemental spirits")]
     );
 
     const kraken = new Race(
@@ -95,7 +99,8 @@ export class ProfessionProviderService {
       [ new Hindrance("All Thumbs", 0, "–2 to use mechanical or electrical devices."),
         new Hindrance('Clueless', 0, '–1 to Common Knowledge and Notice rolls.'),
         new Hindrance("Dumb", 0, "Half-ugak brains are less developed than most. It costs 2 points/advances to raise smarts."),
-        new Hindrance("Outsider", 0, "Universally reviled or at least shunned by other races. -2 to Charisma"),]
+        new Hindrance("Outsider", 0, "Universally reviled or at least shunned by other races. -2 to Charisma"),
+        new Hindrance("No Magic", 0, "This race cannot speak to the elemental spirits")]
     );
 
     const scurrilian = new Race(

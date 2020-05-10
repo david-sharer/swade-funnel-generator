@@ -183,19 +183,19 @@ export class EdgeProviderService {
   public get fiftyFathomsSwade(): Edge[] {
     return [
       ...this.swadeCore,
-      new Edge("Artificer", "S, AB", "Allows user to create Arcane Devices. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Channeling", "S, AB", "Reduce Power Point cost by 1 with a raise on the activation roll. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Concentration", "S, AB", "Double Duration of non-Instant powers. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("Artificer", "S, AB", "Allows user to create Arcane Devices. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Channeling", "S, AB", "Reduce Power Point cost by 1 with a raise on the activation roll. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Concentration", "S, AB", "Double Duration of non-Instant powers. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
 
-      new Edge("New Powers", "N, AB", "Your character knows two new powers, your choice. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Power Points", "N, AB", "Gain 5 additional Power Points, no more than once per Rank. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Power", "Surge WC, N, AB, arcane skill d8", "Recover 10 Power Points when dealt a Joker in combat. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Rapid Recharge", "S, Sp d6, AB", "Recover 10 Power Points per hour. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Improved Rapid Recharge", "V, Rapid Recharge", "Recover 20 Power Points per hour. If you don't already have magic, gain magic. <genmagic>"),
-      new Edge("Soul Drain", "S, AB, arcane skill d10", "Recover 5 Power Points for a level of Fatigue. If you don't already have magic, gain magic. <genmagic>"),
+      new Edge("New Powers", "N, AB", "Your character knows two new powers, your choice. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Power Points", "N, AB", "Gain 5 additional Power Points, no more than once per Rank. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Power", "Surge WC, N, AB, arcane skill d8", "Recover 10 Power Points when dealt a Joker in combat. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Rapid Recharge", "S, Sp d6, AB", "Recover 10 Power Points per hour. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Improved Rapid Recharge", "V, Rapid Recharge", "Recover 20 Power Points per hour. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
+      new Edge("Soul Drain", "S, AB, arcane skill d10", "Recover 5 Power Points for a level of Fatigue. If you don't already have magic, gain magic. <genmagic>", ["No Magic"]),
 
-      new Edge('Arcane Background (Magic)', 'N, Sm d6, Human, Kraken, Masaquani, Scurilian', "Mages' power comes from the bound spirits of the raw elements. RNG element, then spells. 10pp, 3 powers. <genmagic>"),
-      new Edge("Elemental Mastery", "S, AB", "Gain a second element (optional). If you don't already have Magic, this gives you magic. This gives -1 to all spell rolls. Become an archmage to remove it.  <genmagic>"),
+      new Edge('Arcane Background (Magic)', 'N, Sm d6, Human, Kraken, Masaquani, Scurilian', "Mages' power comes from the bound spirits of the raw elements. RNG element, then spells. 10pp, 3 powers. <genmagic>", ["No Magic"]),
+      new Edge("Elemental Mastery", "S, AB", "Gain a second element (optional). If you don't already have Magic, this gives you magic. This gives -1 to all spell rolls. Become an archmage to remove it.  <genmagic>", ["No Magic"]),
 
       new Edge('Booty!', 'N, Boating d6, Fighting d6, Shootingd6', 'Begin play with a roll on the King\'s Random table. Why do you have this?'),
       new Edge("Kraken Bone Sword & Armor", "N, Kraken", "Begin play with an enchanted bone sword from the Kraken Navy. Why do you have this?"),

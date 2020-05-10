@@ -14,7 +14,7 @@ export function pickValidEdges(
 {
   const shuffledEdges = chance.shuffle(edgeSource);
   const existingEdgeNames = [...edges, ...race.edges].map(e => e.name);
-  const hindranceNames = hindrances.map(h => h.name);
+  const hindranceNames = [...hindrances, ...race.hindrances].map(h => h.name);
   const edgesBannedByHindrances = _(hindrances).map(h => h.bannedEdges).flatten().uniq().value();
   const hasNoConflictWithHindrances =
     (e: Edge) =>
