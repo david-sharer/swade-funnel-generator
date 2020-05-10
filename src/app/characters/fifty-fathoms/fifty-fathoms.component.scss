@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-flow: row wrap;
+  > * {
+    flex-basis: 400px;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}

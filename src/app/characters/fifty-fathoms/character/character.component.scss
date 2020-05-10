@@ -1,0 +1,12 @@
+.horizontal-list {
+  display: flex;
+  flex-flow: row wrap;
+  > * {
+    margin-right: 1em;
+  }
+}
+
+:host {
+  margin: .5rem;
+  border: 1px solid black;
+}

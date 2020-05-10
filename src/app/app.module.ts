@@ -8,6 +8,7 @@ import { CharactersComponent } from './characters/characters/characters.componen
 import { HomeComponent } from './pages/home/home.component';
 import { FiftyFathomsComponent } from './characters/fifty-fathoms/fifty-fathoms.component';
 import { FiftyFathomsCharactersComponent } from './characters/fifty-fathoms/character/character.component';
+import { ExpandoComponent } from './utility/expando/expando.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FiftyFathomsCharactersComponent } from './characters/fifty-fathoms/char
     HomeComponent,
     FiftyFathomsComponent,
     FiftyFathomsCharactersComponent,
+    ExpandoComponent,
   ],
   imports: [
     BrowserModule,

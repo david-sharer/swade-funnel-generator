@@ -51,7 +51,7 @@ export class ProfessionProviderService {
     const doreen = new Race(
       "Doreen",
       "Dolphin-folk. Hunted to near extinction by Kehana. At one time there were around 300.",
-      [ new Edge("Sea Hunter", "", "Doreen are consummate hunters and know a great deal about th eseas they swim. They add +2 to Stealth & Surfival rolls made while underwater."),
+      [ new Edge("Sea Hunter", "", "Doreen are consummate hunters and know a great deal about the seas they swim. They add +2 to Stealth & Survival rolls made while underwater."),
         new Edge("Semi-Aquatic", "", "Start with d6 in swimming. Move at skill level in inches while swimming. Can stay underwater for 15 minutes before making fatigue rolls.")],
       [ new Hindrance("Racial Enemy (Kehana)", 0, "Doreen hate the kehana and suffer -4 to Charisma when working with them.")]
     );
@@ -103,7 +103,7 @@ export class ProfessionProviderService {
     const scurrilian = new Race(
       "Scurillian",
       "It's a giant crab, created by magic. Pincers. Smart. Great eyes. They molt.",
-      [ new Edge("Pincers", "", "Str+d6. They're giant. Treat the two pincers as a separate creature for turns. They are ambidextrous. +2 to Grappling"),
+      [ new Edge("Pincers", "", "Str+d6. They're giant. Treat the two pincers as a separate creature for turns. They're ambidextrous. +2 to Grappling"),
         new Edge("Keen Mind", "", "Their brains are wired to remember details and easily deal with mathematics. +2 to Common Knowledge on relevant rolls."),
         new Edge("Shell", "", "Torso: +3 toughness. Legs: +1 toughness. Does not stack with other armor (if you can even get fitted)"),
         new Edge("Telescopic Eyes", "", "+2 to Notice Rolls to detect things behind them. Can peer over cover with little exposure. -8 penalty to target an eye. 2 damage destroys the eye for 6 months (and shakes)"),

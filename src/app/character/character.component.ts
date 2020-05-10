@@ -2,7 +2,6 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { HindranceProviderService } from '../provider/hindrance-provider.service';
 import { ProfessionProviderService } from '../provider/profession-provider.service';
 import { EdgeProviderService } from '../provider/edge-provider.service';
-import { Profession } from '../provider/profession';
 import { Hindrance } from '../provider/hindrance';
 import { MinimalEdge } from '../provider/edge';
 import * as _ from 'lodash';
