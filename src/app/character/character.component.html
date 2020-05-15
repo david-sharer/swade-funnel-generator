@@ -1,16 +1,45 @@
 <div>
   <ul>
-    <li><b>{{profession.race}} {{profession.occupation}}</b> (<a href="{{profession.referenceUrl}}">info</a>)</li>
     <li>
+      <b>
+        <ng-container *ngIf="profession.race.name != 'Human'">{{profession.race.name}} </ng-container>
+        {{profession.occupation}}
+      </b>
+      <ng-container *ngIf="profession.referenceUrl"> (<a href="{{profession.referenceUrl}}">info</a>)</ng-container>
+      <app-expando [label]="'ⓘ'" [tooltip]="profession.race.summary">
+        <br />
+        {{profession.race.summary}}
+      </app-expando>
+      <ul class="horizontal-list">
+        <span *ngFor="let edge of profession.race.edges">
+          <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="edge.summary"><br/>{{edge.summary}}<br /></app-expando>
+        </span>
+        <span *ngFor="let hindrance of profession.race.hindrances">
+          <b> ⁻&nbsp;{{hindrance.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="hindrance.summary"><br/>{{hindrance.summary}}<br /></app-expando>
+        </span>
+      </ul>
+    </li>
+    <li *ngIf="profession.items.length == 0">Carrying nothing</li>
+    <li *ngIf="profession.items.length > 0">
       Carrying:
       <ul>
-        <li>{{profession.goods}}</li>
-        <li>{{profession.weapon}}</li>
+        <li *ngFor="let item of profession.items">{{item}}</li>
       </ul>
     </li>
     <li *ngFor="let hindrance of hindrances">
-      <b> ⁻ {{hindrance.name}} </b><span>{{hindrance.summary}}</span>
+      <b> ⁻&nbsp;{{hindrance.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="hindrance.summary"><br/>{{hindrance.summary}}</app-expando>
     </li>
-    <li><b>⁺ {{edge.name}} </b><span>{{edge.summary}}</span></li>
+    <li *ngFor="let edge of edges">
+      <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="edge.summary"><br/>{{edge.summary}}</app-expando>
+    </li>
   </ul>
+  <div *ngIf="domain">
+    <hr />
+    <b>Elemental Mage.</b> Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
+    <ul>
+      <li *ngFor="let power of powers">
+        <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -1,0 +1,35 @@
+.horizontal-list {
+  display: flex;
+  flex-flow: row wrap;
+  > * {
+    margin-right: 1em;
+  }
+}
+
+:host {
+  margin: .5rem;
+  padding: .5rem;
+  border: 1px solid black;
+  > div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    > ul {
+      padding: 0;
+    }
+  }
+}
+
+ul {
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
+}
+
+
+li {
+  list-style: none;
+}
+
+div {
+}

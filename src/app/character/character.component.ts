@@ -1,12 +1,15 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { HindranceProviderService } from '../provider/hindrance-provider.service';
-import { ProfessionProviderService } from '../provider/profession-provider.service';
-import { EdgeProviderService } from '../provider/edge-provider.service';
-import { Hindrance } from '../provider/hindrance';
-import { MinimalEdge } from '../provider/edge';
 import * as _ from 'lodash';
-import { ProfessionFull } from '../provider/profession-full';
 import { Chance } from 'chance';
+import { ProfessionFull2 } from '@provider/profession-full-2';
+import { EdgeProviderService } from '@provider/edge-provider.service';
+import { HindranceProviderService } from '@provider/hindrance-provider.service';
+import { ProfessionProviderService } from '@provider/profession-provider.service';
+import { PowerProviderService } from '@provider/power-provider.service';
+import { Power } from '@provider/power';
+import { Edge } from '@provider/edge';
+import { Hindrance } from '@provider/hindrance';
+import { pickValidEdges } from '@utility/pick-valid-edges';
 
 @Component({
   selector: 'app-character',
@@ -14,9 +17,11 @@ import { Chance } from 'chance';
   styleUrls: ['./character.component.scss']
 })
 export class CharacterComponent implements OnChanges {
-  public edge: MinimalEdge;
+  public edges: Edge[];
   public hindrances: Hindrance[];
-  public profession: ProfessionFull;
+  public profession: ProfessionFull2;
+  public domain: string;
+  public powers: Power[];
 
   @Input() seed: string;
 
@@ -24,14 +29,14 @@ export class CharacterComponent implements OnChanges {
     public edgeProvider: EdgeProviderService,
     public hindranceProvider: HindranceProviderService,
     public professions: ProfessionProviderService,
+    public powerProvider: PowerProviderService,
   ) { }
 
   public ngOnChanges(): void {
     let points = 0;
     const chance = new Chance(this.seed);
-    const hindrances = chance.shuffle(this.hindranceProvider.swade);
-    const edges = chance.shuffle(this.edgeProvider.oldEdges);
-    this.profession = _.first(chance.shuffle(this.professions.swadeDccProfessions));
+    const hindrances = chance.shuffle(this.hindranceProvider.fiftyFathomsSwade);
+    this.profession = _.first(chance.shuffle(this.professions.swadeFantasyProfessions));
 
     const sample =
       _(hindrances)
@@ -44,7 +49,24 @@ export class CharacterComponent implements OnChanges {
         .value();
     this.hindrances = sample;
 
-    const bannedEdges = _(this.hindrances).map(h => h.bannedEdges).flatten().uniq().value();
-    this.edge = _(edges).dropWhile(v => bannedEdges.includes(v.name)).first();
+    this.edges =
+      pickValidEdges(
+        chance,
+        this.profession.race,
+        [],
+        this.hindrances,
+        this.edgeProvider.westMarchesSwade,
+        1);
+
+    if (this.profession.race.afterCreation) {
+      this.profession.race.afterCreation(chance, this.profession.race, this.edges, this.hindrances);
+    }
+    const allEdges = [...this.profession.race.edges, ...this.edges];
+    this.domain = undefined;
+    this.powers = undefined;
+    if (allEdges.filter(e => e.summary.includes("<genmagic>")).length > 0) {
+      this.domain = chance.pickone(["Force (Sound)", "Earth", "Fire", "Water", "Air", "Light (Holy)", "Dark (Necromantic)", "Insects"]);
+      this.powers = chance.pickset(this.powerProvider.westMarchesAll, 3);
+    }
   }
 }
