@@ -70,6 +70,47 @@ export class PowerProviderService {
     return this.westMarchesTable.map(t => t.power);
   }
 
+  public get westMarchesNoviceAll() {
+    return [
+      new Power("Analyze Foe", "Gain knowledge of an enemy's weakness. (Fantasy Companion 28)"),
+      new Power("Arcane Protection", "Defend against magic."),
+      new Power("Beast Friend", "Make friends with a creature."),
+      new Power("Blind", "Blind or distract an enemy."),
+      new Power("Bolt", "An elemental Missile"),
+      new Power("Boost Trait", "Raise a single Attribute / Skill. This costs 1 fewer pp for having half the spell."),
+      new Power("Lower Trait", "Lower a single Attribute / Skill. This costs 1 fewer pp for having half the spell."),
+      new Power("Burrow", "Meld into the earth"),
+      new Power("Burst", "Emit a cone of raw element"),
+      new Power("Confusion", "Distract enemies with sounds"),
+      new Power("Damage Field", "Aura of flames"),
+      new Power("Darksight", "Reduce penalties for darkness"),
+      new Power("Deflection", "Increase Parry/dodge, even at range"),
+      new Power("Detect Arcana", "See the world through magic eyes"),
+      new Power("Conceal Arcana", "Make an item appear neutral to magic eyes"),
+      new Power("Elemental Manipulation", "Perform small cantrips with the element"),
+      new Power("Empathy", "Read the surface thoughts of another"),
+      new Power("Environmental Protection", "Protection from your element."),
+      new Power("Fear", "Cause fear to grip your foes."),
+      new Power("Havoc", "Swirling column of air and debris"),
+      new Power("Healing", "What it says on the tin."),
+      new Power("Illusion", "Create something that isn't there."),
+      new Power("Jet", "Fire a 1\" x 12\" column of raw element. (Fantasy Companion 39)"),
+      new Power("Mage Hand", "Remotely perform actions. (Legerdemain, Fantasy Companion 39)"),
+      new Power("Light", "Torchlight. Costs less (this is half a power)"),
+      new Power("Darknes/Obscures", "Thick fog / Swirling dust (this is half a power)"),
+      new Power("Mind Link", "Link (willing) minds for communication at great distances."),
+      new Power("Mind Reading", "Intrude into the thoughts of another."),
+      new Power("Protection", "Grant armor."),
+      new Power("Relief", "Reduce fatigue."),
+      new Power("Shape Change", "Morph into a beast."),
+      new Power("Smite", "Imbue a melee weapon or ammunition with extra damage"),
+      new Power("Speak Language", "Air changes the target's words to be understood by all who hear them"),
+      new Power("Stun", "Stun according to your element (Fire: Victim sweats profusely and dehydrates.)"),
+      new Power("Summon Elemental", "Turn a bit of the raw element into a living spirit."),
+      new Power("Wall Walker", "Stick to stone/earth surfaces"),
+    ];
+  }
+
   public get westMarchesTable() {
     const X = true;
     const _ = false;
