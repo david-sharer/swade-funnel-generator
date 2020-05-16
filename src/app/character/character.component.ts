@@ -22,7 +22,6 @@ export class CharacterComponent implements OnChanges {
   public profession: ProfessionFull2;
   public domain: string;
   public powers: Power[];
-  public powers2: Power[];
 
   @Input() seed: string;
 
@@ -67,7 +66,7 @@ export class CharacterComponent implements OnChanges {
     this.powers = undefined;
     if (allEdges.filter(e => e.summary.includes("<genmagic>")).length > 0) {
       this.domain = chance.pickone(["Force (Sound)", "Earth", "Fire", "Water", "Air", "Light (Holy)", "Dark (Necromantic)", "Insects"]);
-      this.powers2 = chance.pickset(this.powerProvider.westMarchesNoviceAll, 3);
+      this.powers = chance.pickset(this.powerProvider.westMarchesNoviceAll, 3);
     }
   }
 }
