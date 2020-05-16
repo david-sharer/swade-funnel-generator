@@ -188,6 +188,7 @@ export class EdgeProviderService {
       new Edge('Arcane Background (Sorceror)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
       new Edge('Arcane Background (Cleric)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
       new Edge('Arcane Background (Druid)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
+      new Edge('Arcane Resistance', 'N, Sp d8', 'Arcane skills targeting the hero suffer a −2 penalty (even if cast by allies!); magical damage is reduced by 2.'),
     ]
   }
 
