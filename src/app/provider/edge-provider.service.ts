@@ -146,30 +146,30 @@ export class EdgeProviderService {
 
   public get swadeCoreMagicUpgrades(): Edge[] {
     return [
-      new Edge("Artificer", "S, AB", "Allows user to create Arcane Devices. If you do not already have magic, *also* gain an arcane background. <genmagic>"),
-      new Edge("Channeling", "S, AB", "Reduce Power Point cost by 1 with a raise on the activation roll. If you do not already have magic, gain an arcane background instead. <genmagic>"),
-      new Edge("Concentration", "S, AB", "Double Duration of non-Instant powers. If you do not already have magic, gain an arcane background instead. <genmagic>"),
+      new Edge("Artificer", "S, AB", "Allows user to create Arcane Devices. If you do not already have magic, *also* gain an arcane background."),
+      new Edge("Channeling", "S, AB", "Reduce Power Point cost by 1 with a raise on the activation roll. If you do not already have magic, gain an arcane background instead."),
+      new Edge("Concentration", "S, AB", "Double Duration of non-Instant powers. If you do not already have magic, gain an arcane background instead."),
 
-      new Edge("New Powers", "N, AB", "Your character knows two new powers. If you do not already have magic, gain an arcane background instead. <genmagic>"),
-      new Edge("Power Points", "N, AB", "Gain 5 additional Power Points, no more than once per Rank. If you do not already have magic, gain an arcane background instead. <genmagic>"),
-      new Edge("Power", "Surge WC, N, AB, arcane skill d8", "Recover 10 Power Points when dealt a Joker in combat. If you do not already have magic, gain an arcane background instead. <genmagic>"),
-      new Edge("Rapid Recharge", "S, Sp d6, AB", "Recover 10 Power Points per hour. If you do not already have magic, gain an arcane background instead. <genmagic>"),
-      new Edge("Improved Rapid Recharge", "V, Rapid Recharge", "Recover 20 Power Points per hour. If you do not already have magic, gain an arcane background instead. <genmagic>"),
-      new Edge("Soul Drain", "S, AB, arcane skill d10", "Recover 5 Power Points for a level of Fatigue. If you do not already have magic, gain an arcane background instead. <genmagic>"),
+      new Edge("New Powers", "N, AB", "Your character knows two new powers. If you do not already have magic, gain an arcane background instead."),
+      new Edge("Power Points", "N, AB", "Gain 5 additional Power Points, no more than once per Rank. If you do not already have magic, gain an arcane background instead."),
+      new Edge("Power", "Surge WC, N, AB, arcane skill d8", "Recover 10 Power Points when dealt a Joker in combat. If you do not already have magic, gain an arcane background instead."),
+      new Edge("Rapid Recharge", "S, Sp d6, AB", "Recover 10 Power Points per hour. If you do not already have magic, gain an arcane background instead."),
+      new Edge("Improved Rapid Recharge", "V, Rapid Recharge", "Recover 20 Power Points per hour. If you do not already have magic, gain an arcane background instead."),
+      new Edge("Soul Drain", "S, AB, arcane skill d10", "Recover 5 Power Points for a level of Fatigue. If you do not already have magic, gain an arcane background instead."),
     ];
   }
 
   public get swadeCoreMagicSettingSpecific(): Edge[] {
     return [
-      new Edge('Arcane Background', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
-      new Edge('Arcane Resistance', 'N, Sp d8', 'Arcane skills targeting the hero suffer a −2 penalty (even if cast by allies!); magical damage is reduced by 2. <genmagic>'),
-      new Edge('Improved Arcane Resistance', 'N, Arcane Resistance', 'As Arcane Resistance except penalty is increased to −4 and magical damage is reduced by 4. <genmagic>'),
+      new Edge('Arcane Background', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five.'),
+      new Edge('Arcane Resistance', 'N, Sp d8', 'Arcane skills targeting the hero suffer a −2 penalty (even if cast by allies!); magical damage is reduced by 2.'),
+      new Edge('Improved Arcane Resistance', 'N, Arcane Resistance', 'As Arcane Resistance except penalty is increased to −4 and magical damage is reduced by 4.'),
 
-      new Edge("Wizard", "S, AB (Magic), Spellcasting d6", "Spend 1 extra Power Point to change a spell’s Trapping. <genmagic>"),
-      new Edge("Extra Effort", "S, AB (Gifted), Focus", "d6 Increase Focus by +1 for 1 Power Point or +2 for 3 Power Points. <genmagic>"),
-      new Edge("Gadgeteer", "S, AB (Weird Science), Weird Science d6", "Spend 3 Power Points to create a device that replicates another power. <genmagic>"),
-      new Edge("Holy/Unholy Warrior", "S, AB (Miracles), Faith d6", "Add +1 to +4 to Soak rolls for each Power Point spent. <genmagic>"),
-      new Edge("Mentalist", "S, AB (Psionics), Psionics d6", "+2 to opposed Psionics rolls. <genmagic>"),
+      new Edge("Wizard", "S, AB (Magic), Spellcasting d6", "Spend 1 extra Power Point to change a spell’s Trapping."),
+      new Edge("Extra Effort", "S, AB (Gifted), Focus", "d6 Increase Focus by +1 for 1 Power Point or +2 for 3 Power Points."),
+      new Edge("Gadgeteer", "S, AB (Weird Science), Weird Science d6", "Spend 3 Power Points to create a device that replicates another power."),
+      new Edge("Holy/Unholy Warrior", "S, AB (Miracles), Faith d6", "Add +1 to +4 to Soak rolls for each Power Point spent."),
+      new Edge("Mentalist", "S, AB (Psionics), Psionics d6", "+2 to opposed Psionics rolls."),
     ];
   }
 
@@ -183,8 +183,11 @@ export class EdgeProviderService {
   public get westMarchesSwade(): Edge[] {
     return [
       ...this.swadeCore,
-      ...this.swadeCoreMagicUpgrades,
-      ...this.swadeCoreMagicSettingSpecific,
+      new Edge('Arcane Background (Wizard)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
+      new Edge('Arcane Background (Runemaster)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
+      new Edge('Arcane Background (Sorceror)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
+      new Edge('Arcane Background (Cleric)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
+      new Edge('Arcane Background (Druid)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
     ]
   }
 
