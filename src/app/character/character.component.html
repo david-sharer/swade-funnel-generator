@@ -33,13 +33,56 @@
       <b>⁺&nbsp;{{edge.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="edge.summary"><br/>{{edge.summary}}</app-expando>
     </li>
   </ul>
-  <div *ngIf="domain">
+  <div *ngIf="magic">
     <hr />
-    <b>Elemental Mage.</b> Domain is <b>ₚ{{domain}}</b>. Starts with 10pp and 3 spells.
-    <ul>
-      <li *ngFor="let power of powers">
-        <b>ₚ&nbsp;{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
-      </li>
-    </ul>
+    <ng-container [ngSwitch]="magic.shortName">
+      <ng-container *ngSwitchCase="'Sorceror'">
+        <b>{{magic.shortName}}</b> of <b>{{domain}}</b>. ({{magic.summary}})
+        <ul>
+          <li>Start with 10pp and 1 spell</li>
+          <li>Birth Element: <b>{{domain}}</b></li>
+          <li *ngFor="let power of powers">
+            Power: <b>{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
+          </li>
+        </ul>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Druid'">
+        <b>{{magic.shortName}}</b>, followed by <b>{{domain}}</b> spirits. ({{magic.summary}})
+        <ul>
+          <li>Start with 10pp and 1 spell</li>
+          <li>Spirits: <b>{{domain}}</b></li>
+          <li *ngFor="let power of powers">
+            Power: <b>{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
+          </li>
+        </ul>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Runemaker'">
+        <b>{{magic.shortName}}</b>. ({{magic.summary}})
+        <ul>
+          <li>Start with 10pp and 1 spell</li>
+          <li>First rune:
+            <ul>
+              <li>Trapping: <b>{{domain}}</b></li>
+              <li *ngFor="let power of powers">
+                Power: <b>{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Cleric'">
+        <b>{{magic.shortName}}</b> of <b>{{domain}}</b>. ({{magic.summary}})
+        <ul>
+          <li>Start with 10pp and 1 spell</li>
+          <li>Deity: <b>{{domain}}</b></li>
+          <li *ngFor="let power of powers">
+            Power: <b>{{power.name}}</b><app-expando [label]="'ⓘ'" [tooltip]="power.summary"><br/>{{power.summary}}</app-expando>
+          </li>
+        </ul>
+      </ng-container>
+    </ng-container>
   </div>
 </div>

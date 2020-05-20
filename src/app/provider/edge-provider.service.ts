@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MinimalEdge, Edge } from './edge';
+import { MinimalEdge, Edge, ArcaneEdge } from './edge';
+import { PowerProviderService } from './power-provider.service';
 
 // tslint:disable: max-line-length
 
@@ -7,15 +8,16 @@ import { MinimalEdge, Edge } from './edge';
   providedIn: 'root'
 })
 export class EdgeProviderService {
-  constructor() { }
+  constructor(
+    private readonly powers: PowerProviderService,
+  ) { }
 
-  public get swadeCore(): Edge[] {
+  public get swadeNoviceTierOne(): Edge[] {
     return [
       new Edge('Alertness', 'N', '+2 to Notice rolls.'),
       new Edge('Ambidextrous', 'N, A d8', 'Ignore –2 penalty when making Trait rolls with off-hand.'),
       new Edge('Aristocrat', 'N', '+2 to Common Knowledge and networking with upper class.'),
       new Edge('Attractive', 'N, V d6', '+1 to Performance and Persuasion rolls.'),
-      new Edge('Very Attractive', 'N, Attractive', '+2 to Performance and Persuasion rolls.'),
       new Edge('Berserk', 'N', 'After being Shaken or Wounded, melee attacks must be Wild Attacks, +1 die type to Strength, +2 to Toughness, ignore one level of Wound penalties, Critical Failure on Fighting roll hits random target. Take Fatigue after every five consecutive rounds, may choose to end rage with Smarts roll –2.'),
       new Edge('Brave', 'N, Sp d6', '+2 to Fear checks and –2 to rolls on the Fear Table.'),
       new Edge('Brawny', 'N, St d6, V d6', 'Size (and therefore Toughness) +1. Treat Strength as one die type higher for Encumbrance and Minimum Strength to use weapons, armor, or equipment.'),
@@ -27,31 +29,50 @@ export class EdgeProviderService {
       new Edge('Fleet-Footed', 'N, A d6', 'Pace +2, increase running die one step.'),
       new Edge('Linguist', 'N, Sm d6', 'Character has d6 in languages equal to half her Smarts die.'),
       new Edge('Luck', 'N', '+1 Benny at the start of each session.'),
-      new Edge('Great Luck', 'N, Luck', '+2 Bennies at the start of each session.'),
       new Edge('Quick', 'N, A d8', 'The hero may discard and redraw Action Cards of 5 or lower.'),
       new Edge('Rich', 'N', 'Character starts with three times the starting funds and a $150K annual salary.'),
-      new Edge('Filthy Rich', 'N, Rich', 'Five times starting funds and $500K average salary.'),
       new Edge('Brawler', 'N, St d8, V d8', 'Toughness +1, add d4 to damage from fists; or increase it a die type if combined with Martial Artist, Claws, or similar abilities.'),
       new Edge('Calculating', 'N, Sm d8', 'Ignore up to 2 points of penalties on one action with an Action Card of Five or less.'),
       new Edge('Dead Shot', 'WC, N, Athletics or Shooting d8', 'First successful Athletics (throwing) or Shooting roll, double damage from when dealt a Joker.'),
       new Edge('Extraction', 'N, A d8', 'One adjacent foe doesn’t get a free attack when you withdraw from close combat.'),
       new Edge('Feint', 'N, Fighting d8', 'You may choose to make foe resist with Smarts instead of Agility during a Fighting Test.'),
       new Edge('First Strike', 'N, A d8', 'Free Fighting attack once per round when foe moves within Reach.'),
-      new Edge('Improved First Strike', 'H, First Strike', 'Free Fighting attack against up to three foes when they move within Reach.'),
       new Edge('Free Runner', 'N, A d8', 'Ignore Difficult Ground and add +2 to Athletics in foot chases and Athletics (climbing).'),
       new Edge('Hard to Kill', 'N, Sp d8', 'Ignore Wound penalties when making Vigor rolls to avoid Bleeding Out.'),
       new Edge('Iron Jaw', 'N, V d8', '+2 to Soak and Vigor rolls to avoid Knockout Blows.'),
       new Edge('Martial Artist', 'N, Fighting d6', 'Unarmed Fighting +1, fists and feet count as Natural Weapons, add d4 damage die to unarmed Fighting attacks (or increase die a step if you already have it).'),
       new Edge('Mighty Blow', 'WC, N, Fighting d8', 'On first successful Fighting roll, double damage when dealt a Joker.'),
       new Edge('Nerves of Steel', 'N, V d8', 'Ignore one level of Wound penalties.'),
-      new Edge('Improved Nerves of Steel', 'N, Nerves of Steel', 'Ignore up to two levels of Wound penalties.'),
       new Edge('Steady Hands', 'N, A d8', 'Ignore Unstable Platform penalty; reduce running penalty to –1.'),
       new Edge('Sweep', 'N, St d8, Fighting d8', 'Fighting roll at –2 to hit all targets in weapon’s Reach, no more than once per turn.'),
       new Edge('Trademark Weapon', 'N, d8 in related skill', '+1 to Athletics (throwing), Fighting, or Shooting total with a specific weapon; +1 Parry while weapon is readied.'),
       new Edge('Two-Fisted', 'N, A d8', 'Make one extra Fighting roll with a second melee weapon in the off-hand at no Multi-Action penalty.'),
       new Edge('Two-Gun Kid', 'N, A d8', 'Make one extra Shooting (or Athletics (throwing) roll with a second ranged weapon in the off-hand at no Multi-Action penalty.'),
       new Edge('Command', 'N, Sm d6', '+1 to Extras’ Shaken recovery rolls in Command Range.'),
+      new Edge("Humiliate", "N, Taunt d8", "Free reroll when making Taunt rolls."),
+      new Edge("Menacing", "N, Any(Bloodthirsty, Mean, Ruthless, Ugly)", "+2 to Intimidation."),
+      new Edge("Provoke", "N, Taunt d6", "May “provoke” foes with a raise on a Taunt roll. See text."),
+      new Edge("Reliable", "N, Sp d8", "Free reroll when making Support rolls."),
+      new Edge("Retort", "N, Taunt d6", "A raise when resisting a Taunt or Intimidation attack makes the foe Distracted."),
+      new Edge("Strong Willed", "N, Sp d8", "+2 to resist Smarts or Spirit-based Tests."),
+      new Edge("Healer", "N, Sp d8", "+2 to Healing rolls, magical or otherwise."),
+      new Edge("Liquid Courage", "N, V", "d8 Alcohol increases Vigor a die type and ignores one level of Wound penalty; –1 to Agility, Smarts, and related skills."),
+    ];
+  }
 
+  public get swadeNoviceTierTwo(): Edge[] {
+    return [
+      new Edge('Filthy Rich', 'N, Rich', 'Five times starting funds and $500K average salary.'),
+      new Edge('Very Attractive', 'N, Attractive', '+2 to Performance and Persuasion rolls.'),
+      new Edge('Great Luck', 'N, Luck', '+2 Bennies at the start of each session.'),
+      new Edge('Improved First Strike', 'H, First Strike', 'Free Fighting attack against up to three foes when they move within Reach.'),
+      new Edge('Improved Nerves of Steel', 'N, Nerves of Steel', 'Ignore up to two levels of Wound penalties.'),
+    ];
+  }
+
+  public get swadeNoviceBackgrounds(): Edge[] {
+    return [
+      new Edge("Scavenger", "N, Luck", "May find a needed item once per encounter."),
       new Edge("Ace", "N, A d8", "Character may spend Bennies to Soak damage for his vehicle and ignores up to 2 points of penalties."),
       new Edge("Acrobat", "N, A d8, Athletics d8", "Free reroll on acrobatic Athletics attempts."),
       new Edge("Assassin", "N, A d8, Fighting d6, Stealth d8", "+2 to damage foes when Vulnerable or assassin has The Drop."),
@@ -66,21 +87,20 @@ export class EdgeProviderService {
       new Edge("Bolster", "N, Sp d8", "May remove Distracted or Vulnerable state after a Test."),
       new Edge("Common Bond", "WC, N, Sp d8", "The hero may freely give her Bennies to others."),
       new Edge("Connections", "N", "Contacts provide aid or other favors once per session."),
-      new Edge("Humiliate", "N, Taunt d8", "Free reroll when making Taunt rolls."),
-      new Edge("Menacing", "N, See Text", "+2 to Intimidation."),
-      new Edge("Provoke", "N, Taunt d6", "May “provoke” foes with a raise on a Taunt roll. See text."),
-      new Edge("Reliable", "N, Sp d8", "Free reroll when making Support rolls."),
-      new Edge("Retort", "N, Taunt d6", "A raise when resisting a Taunt or Intimidation attack makes the foe Distracted."),
-      new Edge("Streetwise", "N, Sm d6", "+2 to Common Knowledge and criminal networking."),
-      new Edge("Strong Willed", "N, Sp d8", "+2 to resist Smarts or Spirit-based Tests."),
-      new Edge("Work the Room", "N, Sp d8", "Once per turn, roll a second die when Supporting via Performance or Persuasion and apply result to additional ally."),
       new Edge("Beast Bond", "N", "The hero may spend Bennies for animals under her control."),
       new Edge("Beast Master", "N, Sp d8", "Animals like your hero and he has a pet of some sort. See text."),
+      new Edge("Work the Room", "N, Sp d8", "Once per turn, roll a second die when Supporting via Performance or Persuasion and apply result to additional ally."),
       new Edge("Champion", "N, Sp d8, Fighting d6", "+2 damage vs. supernaturally evil creatures."),
       new Edge("Danger Sense", "N", "Notice roll at +2 to sense ambushes or similar events."),
-      new Edge("Healer", "N, Sp d8", "+2 to Healing rolls, magical or otherwise."),
-      new Edge("Liquid Courage", "N, V", "d8 Alcohol increases Vigor a die type and ignores one level of Wound penalty; –1 to Agility, Smarts, and related skills."),
-      new Edge("Scavenger", "N, Luck", "May find a needed item once per encounter."),
+      new Edge("Streetwise", "N, Sm d6", "+2 to Common Knowledge and criminal networking."),
+    ];
+  }
+
+  public get swadeCore(): Edge[] {
+    return [
+      ...this.swadeNoviceTierOne,
+      ...this.swadeNoviceTierTwo,
+      ...this.swadeNoviceBackgrounds,
     ];
   }
 
@@ -182,14 +202,46 @@ export class EdgeProviderService {
 
   public get westMarchesSwade(): Edge[] {
     return [
-      ...this.swadeCore,
-      new Edge('Arcane Background (Wizard)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
-      new Edge('Arcane Background (Runemaster)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
-      new Edge('Arcane Background (Sorceror)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
-      new Edge('Arcane Background (Cleric)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
-      new Edge('Arcane Background (Druid)', 'N', 'Allows access to the Arcane Backgrounds listed in Chapter Five. <genmagic>'),
+      ...this.swadeNoviceTierOne,
+      ...this.swadeNoviceBackgrounds,
       new Edge('Arcane Resistance', 'N, Sp d8', 'Arcane skills targeting the hero suffer a −2 penalty (even if cast by allies!); magical damage is reduced by 2.'),
-    ]
+    ];
+  }
+
+  public get westMarchesSwadeMagic(): Edge[] {
+    return [
+      new ArcaneEdge(
+        'Arcane Background (Sorceror)',
+        'N',
+        'You\'ve been able to sense magic since you were born. Gain a single iconic sorceror power and an element.',
+        this.powers.westMarchesSorceror,
+        "Sorceror",
+        ["Force/Sound", "Earth", "Fire", "Water", "Air", "Shadows/Necromantic", "Insects"]),
+
+      new ArcaneEdge(
+        'Arcane Background (Druid)',
+        'N',
+        'The spirits of the forest favor you, sometimes causing mischief. Gain a single iconic druid power. All powers are "self" or "touch".',
+        this.powers.westMarchesDruid,
+        "Druid",
+        ["Earth", "Fire", "Water", "Air", "Insects"]),
+
+      new ArcaneEdge(
+        'Arcane Background (Runemaker)',
+        'N',
+        'Your family has passed down knowledge of a rune through the ages. Surely there are more here.',
+        this.powers.westMarchesRunemaker,
+        "Runemaker",
+        ["Force/Sound", "Earth", "Fire", "Water", "Air", "Insects"]),
+
+      new ArcaneEdge(
+        'Arcane Background (Cleric)',
+        'N',
+        'Your family has passed down knowledge of a rune through the ages. Surely there are more here.',
+        this.powers.westMarchesCleric,
+        "Cleric",
+        ["Protection/Renewal - Light/Holy", "Trickster - Dark/Necromantic", "Knowledge - Light/Holy", "Nature - Earth", "Dark/Blood/Wrath - Dark/Necromantic"]),
+    ];
   }
 
   public get fiftyFathomsSwade(): Edge[] {
