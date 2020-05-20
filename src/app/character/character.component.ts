@@ -37,7 +37,7 @@ export class CharacterComponent implements OnChanges {
   public ngOnChanges(): void {
     let points = 0;
     const chance = new Chance(this.seed);
-    const hindrances = chance.shuffle(this.hindranceProvider.fiftyFathomsSwade);
+    const hindrances = chance.shuffle(this.hindranceProvider.swadeWestMarches);
     this.profession = _.first(chance.shuffle(this.professions.swadeFantasyProfessions));
 
     const sample =

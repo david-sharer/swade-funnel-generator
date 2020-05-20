@@ -22,6 +22,15 @@ export class HindranceProviderService {
     ];
   }
 
+  public get swadeWestMarches(): Hindrance[] {
+    return [
+      ...this.swade,
+      new Hindrance("Branded", 2, "Character was caught commiting acts of piracy. Received a brand on face labelling them a pirate. -2 to Persuasion among non-pirates. Any vessel they're on that is boarded by privateers is thoroughly searched. If they're caught committing more acts of piracy, they are summarily executed. (M)"),
+      new Hindrance("Jingoistic", 2, "Character believes their culture to be superior to all others. -4 to Persuasion among other cultures. (M)"),
+      new Hindrance("Jingoistic", 1, "Character believes their culture to be superior to all others. -2 to Persuasion among other cultures. (m)"),
+    ];
+  }
+
   public get swade(): Hindrance[] {
     return [
       new Hindrance('All Thumbs', 1, '–2 to use mechanical or electrical devices. (m)'),
