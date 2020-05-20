@@ -237,7 +237,7 @@ export class EdgeProviderService {
       new ArcaneEdge(
         'Arcane Background (Cleric)',
         'N',
-        'Your family has passed down knowledge of a rune through the ages. Surely there are more here.',
+        'You have sworn to serve a god in exchange for power.',
         this.powers.westMarchesCleric,
         "Cleric",
         ["Protection/Renewal - Light/Holy", "Trickster - Dark/Necromantic", "Knowledge - Light/Holy", "Nature - Earth", "Dark/Blood/Wrath - Dark/Necromantic"]),
