@@ -213,7 +213,7 @@ export class EdgeProviderService {
       new ArcaneEdge(
         'Arcane Background (Sorceror)',
         'N',
-        'You\'ve been able to sense magic since you were born. Gain a single iconic sorceror power and an element.',
+        'You\'ve been able to sense magic since you were born. Gain a single iconic sorceror power and an element',
         this.powers.westMarchesSorceror,
         "Sorceror",
         ["Force/Sound", "Earth", "Fire", "Water", "Air", "Shadows/Necromantic", "Insects"]),
@@ -221,7 +221,7 @@ export class EdgeProviderService {
       new ArcaneEdge(
         'Arcane Background (Druid)',
         'N',
-        'The spirits of the forest favor you, sometimes causing mischief. Gain a single iconic druid power. All powers are "self" or "touch".',
+        'The spirits of the forest favor you, sometimes causing mischief. Gain a single iconic druid power. All powers are "self" or "touch"',
         this.powers.westMarchesDruid,
         "Druid",
         ["Earth", "Fire", "Water", "Air", "Insects"]),
@@ -229,7 +229,7 @@ export class EdgeProviderService {
       new ArcaneEdge(
         'Arcane Background (Runemaker)',
         'N',
-        'Your family has passed down knowledge of a rune through the ages. Surely there are more here.',
+        'Your family has passed down knowledge of a rune through the ages. Surely there are more here',
         this.powers.westMarchesRunemaker,
         "Runemaker",
         ["Force/Sound", "Earth", "Fire", "Water", "Air", "Insects"]),
@@ -237,7 +237,7 @@ export class EdgeProviderService {
       new ArcaneEdge(
         'Arcane Background (Cleric)',
         'N',
-        'You have sworn to serve a god in exchange for power.',
+        'You have sworn to serve a god in exchange for power',
         this.powers.westMarchesCleric,
         "Cleric",
         ["Protection/Renewal - Light/Holy", "Trickster - Dark/Necromantic", "Knowledge - Light/Holy", "Nature - Earth", "Dark/Blood/Wrath - Dark/Necromantic"]),
