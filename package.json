@@ -23,7 +23,7 @@
     "@types/lodash": "^4.14.150",
     "angular-pipes": "^10.0.0",
     "chance": "^1.1.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
